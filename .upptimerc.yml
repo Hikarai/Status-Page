@@ -90,14 +90,6 @@ status-website:
   # i18n:
   #   footer: "All Shopia status monitoring. [View technical details on GitHub](https://github.com/Hikarai/status-page)."
 
-# THEME CUSTOMIZATION (Professional E-commerce Look)
-theme:
-  primaryColor: "#1F2937"        # Dark Gray (Professional, easy to read)
-  secondaryColor: "#3B82F6"      # Blue (Matches common CTA buttons)
-  backgroundColor: "#FFFFFF"     # White (Clean, matches most Shopify themes)
-  # Alternative: Use built-in theme
-  # theme: light
-
 # INCIDENT MANAGEMENT
 assignees: [Hikarai]  # Auto-assign all downtime issues to you
 skipDeleteIssues: false  # Keep issues <15 min for complete history (set to true to delete them)
