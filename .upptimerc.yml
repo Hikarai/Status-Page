@@ -2,84 +2,102 @@
 owner: Hikarai
 repo: status-page
 
+# MONITORING SETTINGS
+checkInterval: 5  # Check every 5 minutes (GitHub Actions minimum)
+delay: 3000       # 3-second delay between checking different pages (prevents rate limiting)
+timezone: "Asia/Karachi"
+maxResponseTime: 5000  # 5 seconds (realistic for e-commerce - longer = degraded performance)
+
+# SITES TO MONITOR (Critical Shopify Pages)
 sites:
+  # Main Store
   - name: All Shopia Store
     url: https://www.allshopia.com
     icon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
     description: "Main store homepage"
     expectedStatusCodes: [200]
-
+    assignees: [Hikarai]  # Assign issues to you for quick response
+  
   # Critical Shopping Journey Pages (Customer Funnel)
   - name: Product Pages
     url: https://allshopia.com/collections/all
     description: "Product listing and detail pages"
-    maxResponseTime: 3000
-    expectedStatusCodes: [200]
+    maxResponseTime: 3000  # Even faster for product browsing
+    assignees: [Hikarai]
     
   - name: Shopping Cart
     url: https://allshopia.com/cart
     description: "Customer shopping cart"
     maxResponseTime: 3000
-    expectedStatusCodes: [200]
+    assignees: [Hikarai]
   
   - name: Checkout Process
     url: https://allshopia.com/checkout
     description: "Checkout and payment gateway"
-    maxResponseTime: 4000
-    expectedStatusCodes: [200]
-    # Warning: Use this cautiously. If the page text changes, it will cause false alarms.
-    # __dangerous__body_down_if_text_missing: '"Checkout"'
+    maxResponseTime: 4000  # Slightly longer for checkout (payment processing)
+    assignees: [Hikarai]
+    # __dangerous__body_down_if_text_missing: '"Checkout"'  # Optional: Use with caution
   
   # Content & Support Pages
   - name: Customer Support
     url: https://allshopia.com/pages/contact-us
     description: "Contact and support pages"
-    expectedStatusCodes: [200]
+    assignees: [Hikarai]
 
-# Monitoring Settings
-checkInterval: 5
-delay: 3000 # 3-second delay between checks
-maxResponseTime: 5000 # 5 seconds threshold for "degraded" performance
-timezone: "Asia/Karachi"
-
-# Status Page Branding & Setup
+# STATUS WEBSITE CUSTOMIZATION (Single, merged section)
 status-website:
-  # CRITICAL FIX: This line makes CSS load correctly on GitHub Pages
+  # CRITICAL: This fixes broken CSS on GitHub Pages
   baseUrl: /status-page
   cname: status.allshopia.com
   name: All Shopia Status
-  # Use a valid logo URL from your store
+  # Replace placeholder with your actual logo URL
   logoUrl: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/logo_800x800_0fc25045-3739-4812-a74d-a8186edf1954.png?v=1764260129
   
-  introTitle: "All Shopia System Status"
-  introMessage: "Welcome to our live status page. Here you can see the real-time availability and performance of our online store. This page is updated automatically every 5 minutes."
+  # Customer-Focused Intro Text
+  introTitle: "All Shopia Service Status"
+  introMessage: |
+    Welcome to our real-time service status page. We continuously monitor all critical parts of our online store to ensure a smooth shopping experience.
+    
+    **What we monitor:**
+    - Store homepage and product browsing
+    - Shopping cart and checkout process  
+    - Contact and support pages
+    
+    You can subscribe to status updates or check our incident history below.
   
+  # Customer-Friendly Navigation
   navbar:
     - title: Status Home
       href: /
-    - title: Visit Our Store
+    - title: Shop Now
       href: https://www.allshopia.com
-    - title: Report History
+    - title: Incident History
       href: /history
-    - title: GitHub
-      href: https://github.com/Hikarai/status-page
+    - title: Response Graphs
+      href: /graphs
   
+  # Custom favicon matching your store
   favicon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
 
-# THEME CONFIGURATION (Corrected Structure)
-# The 'theme:' key should be under 'status-website:' per the docs.
-status-website:
+  # Theme Configuration (Now correctly nested inside status-website)
   theme:
-    primaryColor: "#1F2937"
-    secondaryColor: "#3B82F6"
-    backgroundColor: "#F9FAFB"
-  # Alternatively, you can just use a built-in theme:
-  # theme: light
+    primaryColor: "#1F2937"        # Dark Gray (Professional, easy to read)
+    secondaryColor: "#3B82F6"      # Blue (Matches common CTA buttons)
+    backgroundColor: "#FFFFFF"     # White (Clean, matches most Shopify themes)
 
-# Notifications
+# INCIDENT MANAGEMENT
+assignees: [Hikarai]  # Auto-assign all downtime issues to you
+skipDeleteIssues: false  # Keep issues <15 min for complete history (set to true to delete them)
+
+# NOTIFICATIONS (Configure based on your setup)
 notifications:
   - type: email
+  # - type: sms  # Uncomment when SMS is configured for urgent alerts
 
-# Assignees & Issue Settings (Optional)
-assignees: [Hikarai]
-skipDeleteIssues: false
+# WORKFLOW SCHEDULE (Optimized for Shopify)
+workflowSchedule:
+  uptime: "*/5 * * * *"      # Every 5 minutes (minimum)
+  responseTime: "0 */6 * * *" # Every 6 hours instead of daily
+  graphs: "0 2 * * *"        # Daily at 2 AM (low traffic time)
+  staticSite: "0 3 * * *"     # Daily at 3 AM
+  summary: "0 4 * * *"        # Daily at 4 AM
