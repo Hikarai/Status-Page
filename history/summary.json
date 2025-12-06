@@ -2,7 +2,7 @@
   {
     "name": "All Shopia Store",
     "url": "https://www.allshopia.com",
-    "icon": "https://icons.duckduckgo.com/ip3/www.allshopia.com.ico",
+    "icon": "https://www.allshopia.com/favicon.ico",
     "slug": "all-shopia-store",
     "status": "up",
     "uptime": "100.00%",
@@ -10,11 +10,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 1242,
-    "timeDay": 1242,
-    "timeWeek": 1242,
-    "timeMonth": 1242,
-    "timeYear": 1242,
+    "time": 965,
+    "timeDay": 965,
+    "timeWeek": 965,
+    "timeMonth": 965,
+    "timeYear": 965,
     "dailyMinutesDown": {}
   }
 ]
