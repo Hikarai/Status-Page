@@ -1,29 +1,45 @@
 # All Shopia Upptime Configuration
 owner: Hikarai
-repo: status-page # Use the EXACT name of your GitHub repository
+repo: status-page
 
 sites:
   - name: All Shopia Store
     url: https://www.allshopia.com
+    icon: https://www.allshopia.com/favicon.ico
     description: "The primary online store"
+    expectedStatusCodes: [200]
 
 # Monitoring Settings
-checkInterval: 5 # Check every 5 minutes
-maxResponseTime: 10000 # Alert if slower than 10 seconds
-timezone: "Asia/Karachi" # Set to Pakistan time
+checkInterval: 5
+maxResponseTime: 10000
+timezone: "Asia/Karachi"
 
 # Status Page Branding & Setup
 status-website:
-  cname: status.allshopia.com # Your custom domain
+  cname: status.allshopia.com
   name: All Shopia Status
   logoUrl: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/logo_800x800_0fc25045-3739-4812-a74d-a8186edf1954.png?v=1764260129
   introTitle: "All Shopia System Status"
-  introMessage: "Welcome to our official status page. Here you can see the real-time performance and availability of our online store and services. This page is updated automatically."
+  introMessage: "Welcome to our live status page. Here you can see the real-time availability and performance of our online store. This page is updated automatically every 5 minutes."
   navbar:
     - title: Status Home
       href: /
     - title: Visit Our Store
       href: https://www.allshopia.com
-    - title: View on GitHub
+    - title: Report History
+      href: /history
+    - title: GitHub
       href: https://github.com/Hikarai/status-page
-      
+
+# THEME CONFIGURATION (Fixes Styling)
+theme:
+  primaryColor: "#1F2937"        # Dark Gray (Primary text/headers)
+  secondaryColor: "#3B82F6"      # Blue (Accent, links, buttons)
+  backgroundColor: "#F9FAFB"     # Light Gray (Page background)
+  customCSS: |
+    /* Optional: Add any extra custom CSS rules here */
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+
+# Notifications (Example: Email - Requires GH Secrets)
+notifications:
+  - type: email
