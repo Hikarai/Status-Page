@@ -1,20 +1,20 @@
 [
   {
-    "name": "Google",
+    "name": "All Shopia Store",
     "url": "https://www.allshopia.com",
     "icon": "https://icons.duckduckgo.com/ip3/www.allshopia.com.ico",
-    "slug": "google",
+    "slug": "all-shopia-store",
     "status": "up",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 441,
-    "timeDay": 441,
-    "timeWeek": 441,
-    "timeMonth": 441,
-    "timeYear": 441,
+    "time": 1003,
+    "timeDay": 1003,
+    "timeWeek": 1003,
+    "timeMonth": 1003,
+    "timeYear": 1003,
     "dailyMinutesDown": {}
   }
 ]
