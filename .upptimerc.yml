@@ -26,10 +26,4 @@ status-website:
       href: https://www.allshopia.com
     - title: View on GitHub
       href: https://github.com/Hikarai/status-page
-
-# Page Theme (Clean & Professional)
-theme:
-  primaryColor: "#1F2937" # Dark gray
-  secondaryColor: "#3B82F6" # Blue accent
-  backgroundColor: "#F9FAFB" # Light background
-  darkMode: false
+      
