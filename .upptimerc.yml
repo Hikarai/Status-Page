@@ -2,35 +2,54 @@
 owner: Hikarai # Your GitHub organization or username, where this repository lives
 repo: status-page # The name of this repository
 
+# Core Settings
+timezone: "Asia/Karachi"
+
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  - name: AllShopia Home
+    url: https://www.allshopia.com
+    icon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
+    maxResponseTime: 5000
+    expectedStatusCodes: [200]
+  - name: Product Collection
+    url: https://www.allshopia.com/collections/all
+    icon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
+    maxResponseTime: 5000
+    expectedStatusCodes: [200]
+  - name: Shopping Cart
+    url: https://www.allshopia.com/cart
+    icon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
+    maxResponseTime: 3000 # Stricter threshold for interactive pages
+    expectedStatusCodes: [200]
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status.allshopia.com
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # baseUrl: /status-page  # Keep this commented if using custom domain above
+  logoUrl: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
+  name: All Shopia Status
+  introTitle: "**All Shopia** Service Status"
+  introMessage: This is the real-time status page for our Shopify store, monitoring the availability of our key shopping pages.
   navbar:
     - title: Status
       href: /
+    - title: Visit Store
+      href: https://www.allshopia.com
     - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+      href: https://github.com/Hikarai/status-page
+  favicon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
+
+# Workflow Schedule
+# Keep in mind that a scheduled GitHub Action cannot run faster than every 5 minutes.
+workflowSchedule:
+  graphs: "0 0 * * *"
+  responseTime: "0 23 * * *"
+  staticSite: "0 1 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 * * 0" # Runs weekly on Sunday
+  updates: "0 3 * * *"
+  uptime: "*/5 * * * *"
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
