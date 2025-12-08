@@ -26,7 +26,7 @@ status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status.allshopia.com
-  baseUrl: /status-page  # UNCOMMENTED: Required for assets to load correctly
+  # baseUrl: /status-page  # UNCOMMENTED: Required for assets to load correctly
   logoUrl: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
   name: All Shopia Status
   introTitle: "**All Shopia** Service Status"
