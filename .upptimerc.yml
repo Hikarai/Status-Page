@@ -6,7 +6,7 @@ repo: status-page # The name of this repository
 timezone: "Asia/Karachi"
 
 sites:
-  - name: AllShopia Home
+  - name: All Shopia Home
     url: https://www.allshopia.com
     icon: https://cdn.shopify.com/s/files/1/0947/3117/4253/files/cropped_circle_logo.png?v=1759408066
     maxResponseTime: 5000
